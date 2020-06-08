@@ -1,16 +1,23 @@
 (function(doc) {
+
+  function doStuff() {
+    alert("trying to remove body");
+    $("body").remove();
+  }
+
   if (typeof jQuery == 'undefined') {
     var script_jQuery = document.createElement('script');
-    script_jQuery.setAttribute('src', 'https://code.jquery.com/jquery-latest.min.js');
-    Node.prototype.appendChild.call(
-      document.body,
-      script_jQuery
-    );
-    console.log('jQuery included ^_^');
+    script_jQuery.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js';
+
+    // call doStuff() after jQuery.js loads
+    script_jQuery.onload = doStuff;
+
+    doc.body.appendChild(script_jQuery);
+    console.log('script_jQuery appended to body');
     
-    jQuery("body").remove(); 
-    alert("body removed");
   } else {
     console.log('jQuery already included ...');
+    // initialize your code using existing version
+    doStuff();
   }
 })(document)
