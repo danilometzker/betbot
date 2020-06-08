@@ -54,34 +54,45 @@
       $(".lv-ButtonBar_MatchLive").click();
       
       setInterval(function(){
-        var gameTime = $("div.ipe-SoccerHeaderLayout_ExtraData").text();
-        
-        var corners = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn_ICorner div.ipe-SoccerGridCell");
-        var totalCorners = parseInt(corners.eq(0).text()) + parseInt(corners.eq(1).text());
-        
-        $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
-        $("#betbot_corners").html("<b>Total de escanteios:</b> "+totalCorners);
-        
-        var sim = "<span style='color:green'>Sim</span>";
-        var nao = "<span style='color:red'>Não</span>";
-        var cornersMarket = false;
-        
-        $(".ipe-GridHeaderTabLink").not(".Hidden").each(function(index){
-          if(/(escanteio)/i.test($(this).text())){
-            cornersMarket = true;
+        var checkTeams = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn div.ipe-SoccerGridCell");
+        if(checkTeams.length > 0){
+          var gameTime = $("div.ipe-SoccerHeaderLayout_ExtraData").text();
+
+          var corners = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn_ICorner div.ipe-SoccerGridCell");
+          var totalCorners = parseInt(corners.eq(0).text()) + parseInt(corners.eq(1).text());
+
+          $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
+          $("#betbot_corners").html("<b>Total de escanteios:</b> "+totalCorners);
+
+          var sim = "<span style='color:green'>Sim</span>";
+          var nao = "<span style='color:red'>Não</span>";
+          var cornersMarket = false;
+
+          $(".ipe-GridHeaderTabLink").not(".Hidden").each(function(index){
+            if(/(escanteio)/i.test($(this).text())){
+              cornersMarket = true;
+            }
+          });
+
+          if(cornersMarket){
+            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+sim);
+          }else{
+            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
           }
-        });
-        
-        if(cornersMarket){
-          $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+sim);
+
+          if(parseInt(gameTime.split(":")[0]) > 80){
+            $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
+          }else{
+            $("#betbot_time_to_bet").html("Momento certo de apostar: "+nao);
+          }
+          
         }else{
-          $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
-        }
-        
-        if(parseInt(gameTime.split(":")[0]) > 80){
-          $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
-        }else{
-          $("#betbot_time_to_bet").html("Momento certo de apostar: "+nao);
+          $("#betbot_container").remove();
+          swal({
+            title: "Erro",
+            text: "O BetBot foi encerrado porque nenhum jogo de futebol foi encontrado.",
+            icon: "error",
+          });
         }
         
         
