@@ -80,7 +80,9 @@
             $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
           }
 
-          if(parseInt(gameTime.split(":")[0]) > 80){
+          if(parseInt(gameTime.split(":")[0]) >= 80 && parseInt(gameTime.split(":")[0]) <= 88){
+            $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
+          }else if(parseInt(gameTime.split(":")[0]) >= 35 && parseInt(gameTime.split(":")[0]) <= 43)){
             $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
           }else{
             $("#betbot_time_to_bet").html("Momento certo de apostar: "+nao);
