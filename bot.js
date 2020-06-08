@@ -7,7 +7,7 @@ if(typeof jQuery == "function"){
     
     $("body").remove();
   };
-  document.getElementsByTagName('body')[0].appendChild(e);
+  document.getElementsByTagName('head')[0].appendChild(e);
 }
 
 
