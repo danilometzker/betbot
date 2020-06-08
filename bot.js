@@ -66,7 +66,7 @@
         var nao = "<span style='color:red'>Não</span>";
         var cornersMarket = false;
         
-        $(".ipe-GridHeaderTabLink").each(function(index){
+        $(".ipe-GridHeaderTabLink").not(".Hidden").each(function(index){
           if(/(escanteio)/i.test($(this).text())){
             cornersMarket = true;
           }
