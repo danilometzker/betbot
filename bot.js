@@ -8,11 +8,12 @@
       var team1 = teams.eq(0).text();
       var team2 = teams.eq(1).text();
     
-      toastr.error(team1+" vs "+team2, 'Jogo localizado', {
+      toastr.success(team1+" vs "+team2, 'Jogo localizado', {
         tapToDismiss: true,
         showMethod: 'fadeIn',
         showDuration: 300,
-        progressBar: false
+        progressBar: true,
+        positionClass: 'toast-top-center',
       });
       
     }else{
@@ -20,7 +21,8 @@
         tapToDismiss: true,
         showMethod: 'fadeIn',
         showDuration: 300,
-        progressBar: false
+        progressBar: true,
+        positionClass: 'toast-top-center',
       });
     }
     
