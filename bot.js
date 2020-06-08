@@ -17,7 +17,7 @@
       });
       
     }else{
-      toastr.error("<br>Entre em jogo de futebol para iniciar o bot.", 'BetBot: Erro', {
+      toastr.error("<br>O BetBot só pode ser inicializado em uma página de jogo de futebol.", 'BetBot: Erro', {
         tapToDismiss: true,
         showMethod: 'fadeIn',
         showDuration: 300,
