@@ -19,6 +19,37 @@
         icon: "success",
       });
       
+      $('<div/>',{
+        id: 'betbot_container'
+      }).css({
+        "position": "fixed",
+        "right": "300px",
+        "background": "#fff",
+        "width": "300px",
+        "padding": "10px"
+      }).appendTo('body');
+      
+      $('<div/>',{
+        id: 'betbot_time'
+      }).appendTo('#betbot_container');
+      
+      $('<div/>',{
+        id: 'betbot_corners'
+      }).appendTo('#betbot_container');
+      
+      // select 
+      $(".lv-ButtonBar_MatchLive").click();
+      
+      setInterval(function(){
+        var gameTime = $("div.ipe-SoccerHeaderLayout_ExtraData").text();
+        
+        var corners = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn_ICorner div.ipe-SoccerGridCell");
+        var totalCorners = parseInt(corners.eq(0)) + parseInt(corners.eq(1));
+        
+        $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
+        $("#betbot_corners").html("<b>Total de escanteio:</b> "+totalCorners);
+      }, 1000);
+      
     }else{
       swal({
         title: "Erro",
@@ -35,10 +66,6 @@
     script.src = 'https://unpkg.com/sweetalert/dist/sweetalert.min.js';
     script.onload = initBot;
     virtualdoc.body.appendChild(script);
-     
-    var style = document.createElement('style');
-    style.innerHTML(".swal-modal {font-family:sans-serif; }");
-    virtualdoc.body.appendChild(style);
   }
 
   if(typeof jQuery == 'undefined'){
