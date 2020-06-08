@@ -32,7 +32,7 @@
         "border-bottom-right-radius": "4px",
         "color": "rgba(0,0,0,0.7)",
         "z-index": "999"
-      }).html("<h2>BetBot</h2>").appendTo('body');
+      }).html("<h2>BetBot</h2><hr>").appendTo('body');
       
       $('<div/>',{
         id: 'betbot_time'
