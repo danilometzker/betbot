@@ -93,7 +93,7 @@
           $("#betbot_container").remove();
           swal({
             title: "Erro",
-            text: "O BetBot foi encerrado porque nenhum jogo de futebol foi encontrado.",
+            text: "O BetBot foi encerrado porque nenhum jogo de futebol ao vivo foi encontrado.",
             icon: "error",
           });
         }
@@ -104,7 +104,7 @@
     }else{
       swal({
         title: "Erro",
-        text: "O BetBot só pode ser inicializado em uma página de jogo de futebol.",
+        text: "O BetBot só pode ser inicializado páginas de jogos de futebol <u>ao vivo</u>.",
         icon: "error",
       });
       
