@@ -27,7 +27,10 @@
         "right": "260px",
         "background": "#fff",
         "width": "300px",
-        "padding": "10px"
+        "padding": "10px",
+        "border-bottom-left-radius": "4px",
+        "border-bottom-right-radius": "4px",
+        "color": "rgba(0,0,0,0.7);"
       }).html("<h2>BetBot</h2>").appendTo('body');
       
       $('<div/>',{
