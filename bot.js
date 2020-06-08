@@ -1,6 +1,6 @@
 (function(virtualdoc) {
 
-  function initBot(){
+  function initBot(){    
     var teams = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn div.ipe-SoccerGridCell");
     
     if(teams.length > 0){
@@ -16,12 +16,25 @@
     
   }
 
+  function loadBootstrap(){
+    var script = document.createElement('script');
+    script.src = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js';
+    script.onload = initBot;
+    virtualdoc.body.appendChild(script);
+    
+    var link = document.createElement('link');
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
+    virtualdoc.body.appendChild(link);
+  }
+
   if(typeof jQuery == 'undefined'){
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js';
-    script.onload = initBot;
+    script.onload = loadBootstrap;
     virtualdoc.body.appendChild(script);
   }else{
-    initBot();
+    loadBootstrap();
   }
 })(document)
