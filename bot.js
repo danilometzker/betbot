@@ -1,13 +1,19 @@
-if(typeof jQuery == "function"){
-  var e = document.createElement('script');
-  e.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js";
-  e.type = 'text/javascript';
-  e.onload = function() {
-    var $ = window.jQuery;
+(function(virtualdoc) {
+
+  function initBot(){
+    var teams = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn div.ipe-SoccerGridCell");
+    var team1 = teams.eq(0).text();
+    var team2 = teams.eq(0).text();
     
-    $("body").remove();
-  };
-  document.getElementsByTagName('head')[0].appendChild(e);
-}
+    alert(team1+" vs "+team2);
+  }
 
-
+  if(typeof jQuery == 'undefined'){
+    var script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js';
+    script.onload = initBot;
+    virtualdoc.body.appendChild(script);
+  }else{
+    initBot();
+  }
+})(document)
