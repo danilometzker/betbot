@@ -5,12 +5,17 @@
     
     if(teams.length > 0){
       
+      var goals = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn_IGoal div.ipe-SoccerGridCell ");
+      
       var team1 = teams.eq(0).text();
       var team2 = teams.eq(1).text();
+      
+      var team1Goals = goals.eq(0).text();
+      var team2Goals = goals.eq(1).text();
 
       swal({
         title: "Jogo localizado",
-        text: team1+" vs "+team2,
+        text: team1+"("+team1Goals+") vs ("+team2Goals+")"+team2,
         icon: "success",
       });
       
