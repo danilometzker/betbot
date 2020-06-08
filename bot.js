@@ -23,11 +23,12 @@
         id: 'betbot_container'
       }).css({
         "position": "fixed",
-        "right": "300px",
+        "top": "0px",
+        "right": "260px",
         "background": "#fff",
         "width": "300px",
         "padding": "10px"
-      }).appendTo('body');
+      }).html("<h2>BetBot</h2>").appendTo('body');
       
       $('<div/>',{
         id: 'betbot_time'
@@ -44,7 +45,7 @@
         var gameTime = $("div.ipe-SoccerHeaderLayout_ExtraData").text();
         
         var corners = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn_ICorner div.ipe-SoccerGridCell");
-        var totalCorners = parseInt(corners.eq(0)) + parseInt(corners.eq(1));
+        var totalCorners = parseInt(corners.eq(0).text()) + parseInt(corners.eq(1).text());
         
         $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
         $("#betbot_corners").html("<b>Total de escanteio:</b> "+totalCorners);
