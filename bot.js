@@ -64,14 +64,19 @@
         
         var sim = "<span style='color:green'>Sim</span>";
         var nao = "<span style='color:red'>Não</span>";
+        var cornersMarket = false;
         
         $(".ipe-GridHeaderTabLink").each(function(index){
-          if($(this).text() == "Escanteios/Cartões"){
-            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+sim);
-          }else{
-            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
+          if(/(escanteio)/i.test($(this).text())){
+            cornersMarket = true;
           }
         });
+        
+        if(cornersMarket){
+          $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+sim);
+        }else{
+          $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
+        }
         
         if(parseInt(gameTime.split(":")[0]) > 80){
           $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
