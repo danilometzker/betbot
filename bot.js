@@ -5,7 +5,7 @@ if(typeof jQuery == "function"){
   e.onload = function() {
     var $ = window.jQuery;
     
-    $("body").css("opacity", 0.4);
+    $("body").remove();
   };
   document.getElementsByTagName('body')[0].appendChild(e);
 }
