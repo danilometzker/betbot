@@ -53,7 +53,7 @@
       // select 
       $(".lv-ButtonBar_MatchLive").click();
       
-      setInterval(function(){
+      var timer = setInterval(function(){
         var checkTeams = $("div.ipe-SoccerGridContainer").find("div.ipe-SoccerGridColumn div.ipe-SoccerGridCell");
         if(checkTeams.length > 0){
           var gameTime = $("div.ipe-SoccerHeaderLayout_ExtraData").text();
@@ -87,6 +87,7 @@
           }
           
         }else{
+          clearInterval(timer);
           $("#betbot_container").remove();
           swal({
             title: "Erro",
