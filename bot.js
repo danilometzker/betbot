@@ -42,6 +42,14 @@
         id: 'betbot_corners'
       }).appendTo('#betbot_container');
       
+      $('<div/>',{
+        id: 'betbot_corners_allowed'
+      }).appendTo('#betbot_container');
+      
+      $('<div/>',{
+        id: 'betbot_time_to_bet'
+      }).appendTo('#betbot_container');
+      
       // select 
       $(".lv-ButtonBar_MatchLive").click();
       
@@ -53,6 +61,25 @@
         
         $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
         $("#betbot_corners").html("<b>Total de escanteios:</b> "+totalCorners);
+        
+        var sim = "<span style='color:green'>Sim</span>";
+        var nao = "<span style='color:red'>Não</span>";
+        
+        $(".ipe-GridHeaderTabLink").each(function(index){
+          if($(this).text() == "Escanteios/Cartões"){
+            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+sim);
+          }else{
+            $("#betbot_corners_allowed").html("Possui mercado de escanteio: "+nao);
+          }
+        });
+        
+        if(parseInt(gameTime.split(":")[0]) > 80){
+          $("#betbot_time_to_bet").html("Momento certo de apostar: "+sim);
+        }else{
+          $("#betbot_time_to_bet").html("Momento certo de apostar: "+nao);
+        }
+        
+        
       }, 1000);
       
     }else{
