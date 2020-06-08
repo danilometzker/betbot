@@ -30,7 +30,8 @@
         "padding": "10px",
         "border-bottom-left-radius": "4px",
         "border-bottom-right-radius": "4px",
-        "color": "rgba(0,0,0,0.7);"
+        "color": "rgba(0,0,0,0.7)",
+        "z-index": "999"
       }).html("<h2>BetBot</h2>").appendTo('body');
       
       $('<div/>',{
@@ -51,7 +52,7 @@
         var totalCorners = parseInt(corners.eq(0).text()) + parseInt(corners.eq(1).text());
         
         $("#betbot_time").html("<b>Tempo de jogo:</b> "+gameTime);
-        $("#betbot_corners").html("<b>Total de escanteio:</b> "+totalCorners);
+        $("#betbot_corners").html("<b>Total de escanteios:</b> "+totalCorners);
       }, 1000);
       
     }else{
