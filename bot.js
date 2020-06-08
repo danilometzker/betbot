@@ -8,7 +8,7 @@
       var team1 = teams.eq(0).text();
       var team2 = teams.eq(1).text();
     
-      toastr.success(team1+" vs "+team2, 'Jogo localizado', {
+      toastr.success("<b>Jogo localizado:</b><br>"+team1+" vs "+team2, 'BetBot', {
         tapToDismiss: true,
         showMethod: 'fadeIn',
         showDuration: 300,
@@ -17,7 +17,7 @@
       });
       
     }else{
-      toastr.error('Entre em jogo de futebol para iniciar o bot.', 'Error', {
+      toastr.error("<b>Erro</b><br>Entre em jogo de futebol para iniciar o bot.", 'BetBot', {
         tapToDismiss: true,
         showMethod: 'fadeIn',
         showDuration: 300,
