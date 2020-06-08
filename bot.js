@@ -8,7 +8,12 @@
       var team1 = teams.eq(0).text();
       var team2 = teams.eq(1).text();
     
-      alert(team1+" vs "+team2);
+      toastr.error(team1+" vs "+team2, 'Jogo localizado', {
+        tapToDismiss: true,
+        showMethod: 'fadeIn',
+        showDuration: 300,
+        progressBar: false
+      });
       
     }else{
       toastr.error('Entre em jogo de futebol para iniciar o bot.', 'Error', {
