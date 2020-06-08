@@ -11,30 +11,35 @@
       alert(team1+" vs "+team2);
       
     }else{
-      alert("Entre em jogo de futebol para iniciar o bot.");
+      toastr.error('Entre em jogo de futebol para iniciar o bot.', 'Error', {
+        tapToDismiss: true,
+        showMethod: 'fadeIn',
+        showDuration: 300,
+        progressBar: false
+      });
     }
     
   }
 
-  function loadBootstrap(){
+  function loadToastr(){
     var script = document.createElement('script');
-    script.src = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js';
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js';
     script.onload = initBot;
     virtualdoc.body.appendChild(script);
     
     var link = document.createElement('link');
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css';
     virtualdoc.body.appendChild(link);
   }
 
   if(typeof jQuery == 'undefined'){
     var script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js';
-    script.onload = loadBootstrap;
+    script.onload = loadToastr;
     virtualdoc.body.appendChild(script);
   }else{
-    loadBootstrap();
+    loadToastr();
   }
 })(document)
